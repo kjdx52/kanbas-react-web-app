@@ -27,9 +27,7 @@ function CourseName() {
           >
             <ol className="breadcrumb pt-3">
               <li className="breadcrumb-item">
-                <a href="/#" className="text-danger text-decoration-none">
-                  {course.name}
-                </a>
+                  {course.name}           
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 {screen}
