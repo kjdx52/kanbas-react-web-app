@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import db from "../../Kanbas/Database";
 import { FaBars, FaGlasses } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function CourseName() {
   const { courseId } = useParams();
@@ -27,7 +28,9 @@ function CourseName() {
           >
             <ol className="breadcrumb pt-3">
               <li className="breadcrumb-item">
-                  {course.name}           
+                <Link to={`/Kanbas/Courses/${course._id}`} className="text-danger text-decoration-none">
+                  {course.name}
+                </Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 {screen}
