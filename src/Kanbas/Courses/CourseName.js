@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
-import db from "../../Kanbas/Database";
+
 import { FaBars, FaGlasses } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-function CourseName() {
+function CourseName({ course }) {
   const { courseId } = useParams();
   const { pathname } = useLocation();
   const [empty, kanbas, courses, id, screen] = pathname.split("/");
-  const course = db.courses.find((course) => course._id === courseId);
+  // const course = courses.find((course) => course._id === courseId);
 
   return (
     <div className="d-None d-md-block">

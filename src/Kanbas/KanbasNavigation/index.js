@@ -16,7 +16,11 @@ function KanbasNavigation() {
 
   const { pathname } = useLocation();
   return (
-    <div className="list-group wd-kanbas-navigation" style={{ width: 100, height: "100%"}}>
+    <div>
+    <div className="list-group wd-kanbas-navigation " style={{ width: 100, position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,}}>
       {links.map((link, index) => (
         <Link
           key={index}
@@ -31,6 +35,11 @@ function KanbasNavigation() {
           
         </Link>
       ))}
+    </div>
+    <div style={{width:100}}>
+
+    </div>
+
     </div>
   );
 }
