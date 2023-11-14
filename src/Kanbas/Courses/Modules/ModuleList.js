@@ -1,20 +1,48 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import db from "../../Database";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
+// import { findModulesForCourse, createModule } from "./client";
+import * as client from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+      .then((modules) =>{
+        dispatch(setModules(modules))
+        console.log(modules)
+      }
+    );
+  }, [courseId]);
+
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
 
 
   return (
@@ -36,11 +64,11 @@ function ModuleList() {
           </div>
           <div className="d-flex flex-column align-items-center ms-4" style={{ width: 120 }}>
             <button className="btn btn-success mb-2" style={{ height: "40px", width: "80px" }}
-              onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+              onClick={handleAddModule}>
               Add
             </button>
             <button className="btn btn-primary" style={{ height: "40px", width: "80px" }}
-              onClick={() => dispatch(updateModule(module))}>
+              onClick={handleUpdateModule}>
               Update
             </button>
           </div>
@@ -73,7 +101,7 @@ function ModuleList() {
                   <button
                     style={{ height: "40%" }}
                     className="btn btn-danger"
-                    onClick={() => dispatch(deleteModule(module._id))}>
+                    onClick={() => handleDeleteModule(module._id)}>
                     Delete
                   </button>
                 </div>

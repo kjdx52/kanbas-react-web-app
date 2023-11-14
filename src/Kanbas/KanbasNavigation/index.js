@@ -17,7 +17,7 @@ function KanbasNavigation() {
   const { pathname } = useLocation();
   return (
     <div>
-    <div className="list-group wd-kanbas-navigation " style={{ width: 100, position: 'absolute',
+    <div className="list-group wd-kanbas-navigation " style={{ width: 100, position: 'fixed',
     top: 0,
     bottom: 0,
     left: 0,}}>

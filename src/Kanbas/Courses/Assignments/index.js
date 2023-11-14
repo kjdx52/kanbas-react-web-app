@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
 import AssignmentsBar from "./AssignmentsBar";
 import { BsGripVertical, BsCalculator } from "react-icons/bs";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment, setAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignment, setAssignments } from "./assignmentsReducer";
+import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
@@ -15,11 +15,22 @@ function Assignments() {
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
+  // const courseAssignments = []
+  useEffect(() => {
+    client.findAssignmentsForCourse(courseId)
+      .then((assignments) =>
+        {dispatch(setAssignments(assignments))}
+    );
+  }, [courseId]);
+
 
   const handleDeleteClick = (assignment) => {
     const isConfirmed = window.confirm("Are you sure you want to remove this assignment?");
     if (isConfirmed) {
-      dispatch(deleteAssignment(assignment._id));
+      client.deleteAssignment(assignment._id).then((status) =>{
+        dispatch(deleteAssignment(assignment._id));
+      });
+      
     }
   };
   return (
@@ -33,7 +44,7 @@ function Assignments() {
           {courseId}
         </div>
 
-        {courseAssignments.map((Assignment) => (
+        {assignments.map((Assignment) => (
           <div
             className="list-group-item"
             style={{ display: "flex", alignItems: "center" }}

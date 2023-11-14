@@ -2,11 +2,10 @@ import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addAssignment, setAssignment } from "../assignmentsReducer";
-
+import * as client from "../client";
 
 
 function AssignmentCreator() {
-    // const assignments = useSelector((state) => state.assignmentsReducer.assignments);
     const assignment = useSelector((state) => state.assignmentsReducer.assignment);
     const dispatch = useDispatch();
     const { courseId } = useParams();
@@ -22,9 +21,16 @@ function AssignmentCreator() {
                 alert("Please Complete all input!")
                 return;
             }
-        dispatch(addAssignment({ ...assignment, course: courseId }));
-        setAssignmentDefault();
-        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+            client.createAssignment(courseId,assignment).then(
+                (a) =>{
+                    dispatch(addAssignment(a));  
+                }
+            );
+            setAssignmentDefault();
+            navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+        // dispatch(addAssignment({ ...assignment, course: courseId }));
+        // setAssignmentDefault();
+        // navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
 
     const handleCancel = () => {
