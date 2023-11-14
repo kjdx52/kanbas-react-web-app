@@ -63,7 +63,6 @@ function Kanbas() {
     <div className="d-flex">
       <KanbasNavigation />
       <div className="" style={{ flex: 1 }}>
-        {URL}
         <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
           <Route path="Account" element={<h1>Account</h1>} />
