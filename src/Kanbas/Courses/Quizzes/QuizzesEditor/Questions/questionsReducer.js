@@ -30,6 +30,15 @@ const questionsSlice = createSlice({
         }
       });
     },
+    updateQuestionByIndex: (state, action) => {
+      state.questions = state.questions.map((question) => {
+        if (question.index === action.payload.index) {
+          return action.payload;
+        } else {
+          return question;
+        }
+      });
+    },
     setQuestion: (state, action) => {
       state.question = action.payload;
     },
@@ -38,6 +47,6 @@ const questionsSlice = createSlice({
 
 
 export const { addQuestion, deleteQuestion,
-  updateQuestion, setQuestion, setQuestions } = questionsSlice.actions;
+  updateQuestion,updateQuestionByIndex, setQuestion, setQuestions } = questionsSlice.actions;
 export default questionsSlice.reducer;
 

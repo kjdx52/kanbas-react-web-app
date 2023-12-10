@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addQuestion, setQuestion, setQuestions, updateQuestion } from './questionsReducer';
 import * as client from "./client";
@@ -7,29 +7,37 @@ import { FaEdit } from "react-icons/fa";
 
 
 const QuestionsList = (props) => {
-    const mode = props.mode;
-    const {courseId, quizId } = useParams();
+    const {mode,currentQuestionIndex, setCurrentQuestionIndex} = props;
+    const { courseId, quizId } = useParams();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const Added = queryParams.get('Added');
     const questions = useSelector((state) => state.questionsReducer.questions);
+    const question = useSelector((state) => state.questionsReducer.question);
+
     const dispatch = useDispatch();
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1);
+    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1);
     const currentQuestion = questions.find(question => question.index === currentQuestionIndex);
     const handleButtonClick = (direction) => {
         if (direction === "before" && currentQuestionIndex > 1) {
-          setCurrentQuestionIndex(currentQuestionIndex - 1);
+            setCurrentQuestionIndex(currentQuestionIndex - 1);
         } else if (direction === "next" && currentQuestionIndex < questions.length) {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
-      };
+    };
 
     useEffect(() => {
 
-        if (mode === "Edit") {
-            client.findQuestionsForQuiz(quizId)
-                .then((questions) => { dispatch(setQuestions(questions)) }
-                );
-        } else {
-            dispatch(setQuestions([]))
+        if (!Added) {
+            if (mode === "Edit") {
+                client.findQuestionsForQuiz(quizId)
+                    .then((questions) => { dispatch(setQuestions(questions)) }
+                    );
+            } else {
+                dispatch(setQuestions([]))
+            }
         }
+
     }, [quizId]);
     return (
         <div className='mb-4'>
@@ -53,11 +61,12 @@ const QuestionsList = (props) => {
                                 <div className='col text-end mx-2'>
                                     <span>{currentQuestion.points} pts</span>
                                     <Link
-                                    to={`/Kanbas/Courses/${courseId}/Questions/Update/${currentQuestion._id}`}
+                                        to={`/Kanbas/Courses/${courseId}/Questions/Update/${currentQuestion._id? currentQuestion._id:"temporary"}?index=${currentQuestionIndex}&ownerQuiz=${mode==="Create"? "Creator":quizId}`}
+                                        onClick={() => { dispatch(setQuestion(currentQuestion)) }}
                                     >
-                                        <button className='btn-secondary ms-2'><FaEdit/></button>
+                                        <button className='btn-secondary ms-2'><FaEdit /></button>
                                     </Link>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -138,31 +147,31 @@ const QuestionsList = (props) => {
             ))}
 
             {
-                questions.length>0&&(<div style={{ width: "80%" }} className='text-end'>
-                <button className='btn btn-secondary ms-3' style={{width:"90px"}}
-                onClick={() => handleButtonClick("before")}
-                >
-                    Before
-                </button>
-                <button className='btn btn-secondary ms-3' style={{width:"90px"}}
-                onClick={() => handleButtonClick("next")}
-                >
-                    Next
-                </button>
+                questions.length > 0 && (<div style={{ width: "80%" }} className='text-end'>
+                    <button className='btn btn-secondary ms-3' style={{ width: "90px" }}
+                        onClick={() => handleButtonClick("before")}
+                    >
+                        Before
+                    </button>
+                    <button className='btn btn-secondary ms-3' style={{ width: "90px" }}
+                        onClick={() => handleButtonClick("next")}
+                    >
+                        Next
+                    </button>
 
-            </div>)
+                </div>)
             }
             {
-                questions.length===0&&(
+                questions.length === 0 && (
                     <>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </>
                 )
             }
-            
+
 
         </div>
     );
