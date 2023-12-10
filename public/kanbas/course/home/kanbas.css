@@ -1,0 +1,32 @@
+.wd-kanbas-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 100%;
+    margin: 0px;
+  }
+  
+  .wd-kanbas-navigation li {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: left;
+  }
+  
+  .wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: red;
+}
+.close {
+    color: gray;
+}
+.close:hover{
+    color: red;
+}

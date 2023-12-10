@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/fd7b97609e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../index.css" />
+</head>
+
+<body>
+    <div style="display: flex; height: 100%;">
+        <div style="height: 100%;">
+            <ul class="wd-kanbas-navigation" style="height: 100%;">
+                <li class="wd-active"><a href="/kanbas/account/">
+                        <i class="fa-regular fa-user" style="color: #CCCCCC" aria-hidden="true"></i><br>
+                        Account</a></li>
+                <li>
+                    <a href="/kanbas/dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i><br>
+                        Dashboard</a>
+                </li>
+                <li><a href="/kanbas/course/">
+                        <i class="fa-solid fa-book"></i><br>
+                        Courses</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar" aria-hidden="true"></i><br>
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-inbox" aria-hidden="true"></i><br>
+                        Inbox
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i><br>
+                        History
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-desktop" aria-hidden="true"></i><br>
+                        Studio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><br>
+                        Commons
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-question" aria-hidden="true"></i><br>
+                        Help
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <div>
+            <ul class="wd-account-navigation">
+                <li><a href="#">Notifications</a></li>
+                <li class="wd-active"><a href="/kanbas/account/profile/">Profile</a></li>
+                <li><a href="#">Files</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">ePortfolios</a></li>
+                <li><a href="#">Shared Content</a></li>
+                <li><a href="#">The Hub</a></li>
+                <li><a href="#">Qwickly Course Tools</a></li>
+                <li><a href="#">Global Announcements</a></li>
+            </ul>
+        </div>
+        <div style="width: 30%; margin-left: 20px;">
+
+            <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+                <p>Chuang Zhou's Profile</p>
+            </div>
+            <div style="display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            ">
+                <div>
+                    <div class="circle-icon">
+                        <i class="fa fa-user fa-5x" style="color: grey;" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+
+                <a href="index.html"> </i><button class="btn btn-secondary" style="text-align: right;"> <i
+                            class="fas fa-pencil" style="transform: scaleX(-1);"></i> Cancel Profile</button></a>
+            </div>
+
+            <form>
+                <div class="mb-3 row">
+                    <label for="profile-name" class="col-form-label">Name:*</label>
+                    <input type="text" class="form-control" value="Chuang Zhou" id="profile-name">
+                </div>
+                <div class="mb-3 row">
+                    <label for="profile-pronouns" class="col-form-label">Pronouns:</label>
+                    <Select id="profile-pronouns" class="form-select">
+                        <option value="None">None</option>
+                        <option value="he/him">he/him</option>
+                        <option value="she/her">she/her</option>
+                    </Select><br>
+                </div>
+                <div class="mb-3 row">
+                    <label for="profile-title" class="col-form-label">Title:</label>
+                    <input type="text" class="form-control" id="profile-title">
+                </div>
+                <div class="mb-3 row" style="margin-top: 40px;">
+                    <h4>Contact</h4>
+                    <p>No registered services, you can add some on the <a href="">settings</a> page</p>
+                </div>
+                <div class="mb-3 row" style="margin-top: 20px;">
+                    <h4>Biography</h4>
+                    <textarea name="" id="" class="form-control" cols="50"
+                        rows="4">NEU Student, Web Development, Software Engineer</textarea>
+                </div>
+                <div class="mb-3 row" style="margin-top: 20px;">
+                    <h4>Links</h4>
+
+                    <div>
+
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h6>Title</h6>
+                                </div>
+                                <div class="col-1">
+
+                                </div>
+                                <div class="col-5">
+                                    <h6>URL</h6>
+                                </div>
+                                <div class="col-1">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="text" value="Youtube">
+                                </div>
+                                <div class="col-1">
+                                    &rarr;
+                                </div>
+                                <div class="col-5">
+                                    <h6><input type="text" value="https://www.youtube.com/@WebDevTV"></h6>
+                                </div>
+                                <div class="col-1">
+                                    <a href=""><i class="fa-solid fa-xmark"></i></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <button class="btn btn-secondary">Add another link</button>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+            </form>
+            <div style=" border-top: 1px solid #ccc;"></div>
+                <div class="mb-3 float-end" style="margin-top: 20px;">
+
+                        <a href="index.html"><button class="btn btn-secondary">Cancel</button></a>
+
+                    
+                        <a href="index.html"><button class="btn btn-danger">Save Profile</button></a>
+
+                </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

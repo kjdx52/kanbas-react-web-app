@@ -1,0 +1,378 @@
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/fd7b97609e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div style="display: flex; height: 100%;">
+
+        <div style="height: 100%;">
+            <ul class="wd-kanbas-navigation  d-none d-sm-block" style="height: 100%;">
+                <li><a href="/kanbas/account/">
+                        <i class="fa-regular fa-user" style="color: #CCCCCC" aria-hidden="true"></i><br>
+                        Account</a></li>
+                <li>
+                    <a href="/kanbas/dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i><br>
+                        Dashboard</a>
+                </li>
+                <li class="wd-active"><a href="/kanbas/course/">
+                        <i class="fa-solid fa-book"></i><br>
+                        Courses</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar" aria-hidden="true"></i><br>
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-inbox" aria-hidden="true"></i><br>
+                        Inbox
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i><br>
+                        History
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-desktop" aria-hidden="true"></i><br>
+                        Studio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><br>
+                        Commons
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-question" aria-hidden="true"></i><br>
+                        Help
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div style="flex: 1;">
+            <div>
+                <div style="display: flex;">
+                    <nav class="d-none d-sm-block" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item" style="color: red;">CS5610 FA23</li>
+                            <li class="breadcrumb-item active" aria-current="page">Assignment</li>
+                        </ol>
+                    </nav>
+                    <div class="d-none d-sm-block" style="margin-left: auto;">
+                        <button class="btn btn-secondary">Student View</button>
+                    </div>
+    
+                </div>
+                <div class="row d-flex align-items-center d-sm-none" style="background-color: black; height: 50px;">
+                    <div class="col-1" style="color: white; text-align: left;"><a style="color: white;"
+                            href="/kanbas/course/home/kanbas.html"><i class="fa-solid fa-bars"></i></a></div>
+                    <div class="col" style="color: white; text-align: center; ">CS5610<br>Home</div>
+                    <div class="col-1" style="color: white; text-align: right;"><a style="color: white;"
+                            href="/kanbas/course/home/course.html"><i class="fa-solid fa-chevron-down"></i></a></div>
+                </div>
+                <hr>
+            </div>
+            <div style="display: flex;">
+                <div>
+                    <ul class="wd-course-navigation d-none d-sm-block">
+                        <li><a href="/kanbas/course/home.html">Home</a></li>
+                        <li><a href="#">Models</a></li>
+                        <li><a href="#">Piazza</a></li>
+                        <li><a href="#">Zoom Meetings</a></li>
+                        <li class="wd-active"><a href="/kanbas/course/assignments">Assignments</a></li>
+                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="/kanbas/course/grades.html">Grades</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#">Panopto Video</a></li>
+                        <li><a href="#">Discussions</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Files</a></li>
+                        <li><a href="#">Rubrics</a></li>
+                        <li><a href="#">Outcomes</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="/kanbas/course/settings">Settings</a></li>
+                    </ul>
+                </div>
+                <div class="wd-assignment-list" style="margin-left: 20px; flex: 1;">
+            
+                    <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+                        <div style="display: flex;">
+                            <input type="text" class="form-control w-25" placeholder="Search for Assignments">
+                            <div style="margin-left: auto;">
+                                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Group</button>
+                                <button class="btn btn-danger"><i class="fa-solid fa-plus"></i> Assignments</button>
+                                <button class="btn btn-secondary"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+        
+        
+                    </div>
+                    <div>
+                        
+                            
+                                
+                                <ul class="list-group my-3" style=" border-left: 3px solid green;">
+                                    <li class="list-group-item list-group-item-secondary">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="margin-right: 10px;">Assignments</div>
+                                            <div style="margin-left: auto; margin-right: 10px;">
+                                                <button class="btn btn-secondary rounded-pill"> 40% of Total</button>
+                                                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
+                                                <button class="btn btn-secondary"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                                            </div>
+                            
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A1  ENV + HTML</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A2  CSS + BOOTSTRAP</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A3  JS + REACT</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A4  STATE + REDUX</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A5  NODE + SESSION</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">A6  MONGO + MONGOOSE</a> <br />
+                                                <div>Week 0 - SETUP - Week starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                            
+                                
+                                <ul class="list-group my-3" style=" border-left: 3px solid green;">
+                                    <li class="list-group-item list-group-item-secondary">
+                                        <div style="display: flex; align-items: center;">
+                                                                            <div style="margin-right: 10px;">Quizzes</div>
+                                                                            <div style="margin-left: auto; margin-right: 10px;">
+                                                                                <button class="btn btn-secondary rounded-pill"> 10% of Total</button>
+                                                                                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
+                                                                                <button class="btn btn-secondary"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                                                                            </div>
+                                                            
+                                                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Q1  HTML</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Q2  CSS</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Q3  NODE</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Q4  MONGO</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                            
+                                
+                                <ul class="list-group my-3" style=" border-left: 3px solid green;">
+                                    <li class="list-group-item list-group-item-secondary">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="margin-right: 10px;">Exams</div>
+                                            <div style="margin-left: auto; margin-right: 10px;">
+                                                <button class="btn btn-secondary rounded-pill"> 20% of Total</button>
+                                                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
+                                                <button class="btn btn-secondary"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                                            </div>
+                            
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Midterm</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Final</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                            
+                                
+                                <ul class="list-group my-" style=" border-left: 3px solid green;">
+                                    <li class="list-group-item list-group-item-secondary">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="margin-right: 10px;">Project</div>
+                                            <div style="margin-left: auto; margin-right: 10px;">
+                                                <button class="btn btn-secondary rounded-pill"> 30% of Total</button>
+                                                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
+                                                <button class="btn btn-secondary"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                                            </div>
+                            
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <i class="ms-3 fa-solid fa-grip-vertical"></i>
+                                            <i class="ms-3 fa-solid fa-calculator" style="color: green;"></i>
+                                            <div class="ms-3" style="flex: 1;">
+                                                <a href="edit.html" style="color: black; font-weight: bold;">Project</a> <br />
+                                                <div>Starting on 9/5/2023 |</div>
+                                                <div>Due: Sep 18, 2023 at 11.59pm | 100 pts</div>
+                                            </div>
+                                            <i class="ms-4 fa-solid fa-circle-check" style="color: lightgreen;"></i>
+                                            <i class="ms-4 fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                        
+                    </div>
+                    
+                    
+                    
+                    
+        
+        
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+</body>
+
+</html>

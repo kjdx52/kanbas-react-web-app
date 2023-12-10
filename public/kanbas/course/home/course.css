@@ -1,0 +1,64 @@
+.wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    padding: 0px;
+    width: 85px;
+    margin: 0px;
+  }
+  
+  .wd-kanbas-navigation li {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  
+  .wd-kanbas-navigation li.wd-active {
+    background-color: white;
+  }
+  .wd-kanbas-navigation li.wd-active a {
+    color: red;
+  }
+  
+  .wd-kanbas-navigation a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+  .wd-course-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 190px;
+    margin: 0px;
+    margin-left: 20px;
+  }
+  .wd-course-navigation li {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .wd-course-navigation li.wd-active {
+    border-left: 2px solid black;
+  }
+  .wd-course-navigation li.wd-active a {
+    color: black;
+  }
+  
+  .wd-course-navigation a {
+    color: red;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: red;
+}

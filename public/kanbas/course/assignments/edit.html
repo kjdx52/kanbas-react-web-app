@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/fd7b97609e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div style="display: flex; height: 100%;">
+        <div style="height: 100%;">
+            <ul class="wd-kanbas-navigation  d-none d-sm-block" style="height: 100%;">
+                <li><a href="/kanbas/account/">
+                        <i class="fa-regular fa-user" style="color: #CCCCCC" aria-hidden="true"></i><br>
+                        Account</a></li>
+                <li>
+                    <a href="/kanbas/dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i><br>
+                        Dashboard</a>
+                </li>
+                <li class="wd-active"><a href="/kanbas/course/">
+                        <i class="fa-solid fa-book"></i><br>
+                        Courses</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar" aria-hidden="true"></i><br>
+                        Calendar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-inbox" aria-hidden="true"></i><br>
+                        Inbox
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i><br>
+                        History
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-desktop" aria-hidden="true"></i><br>
+                        Studio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><br>
+                        Commons
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-question" aria-hidden="true"></i><br>
+                        Help
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div style="flex: 1;">
+            <div>
+                <div style="display: flex;">
+                    <nav class="d-none d-sm-block" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item" style="color: red;">CS5610 FA23</li>
+                            <li class="breadcrumb-item" style="color: red;">Assignment</li>
+                            <li class="breadcrumb-item active" aria-current="page">A1 ENV + HTML</li>
+                        </ol>
+                    </nav>
+
+                </div>
+                <div class="row d-flex align-items-center d-sm-none" style="background-color: black; height: 50px;">
+                    <div class="col-1" style="color: white; text-align: left;"><a style="color: white;"
+                            href="/kanbas/course/home/kanbas.html"><i class="fa-solid fa-bars"></i></a></div>
+                    <div class="col" style="color: white; text-align: center; ">CS5610<br>Home</div>
+                    <div class="col-1" style="color: white; text-align: right;"><a style="color: white;"
+                            href="/kanbas/course/home/course.html"><i class="fa-solid fa-chevron-down"></i></a></div>
+                </div>
+                <hr>
+            </div>
+            <div style="display: flex;">
+                <div>
+                    <ul class="wd-course-navigation d-none d-sm-block">
+                        <li><a href="/kanbas/course/home.html">Home</a></li>
+                        <li><a href="#">Models</a></li>
+                        <li><a href="#">Piazza</a></li>
+                        <li><a href="#">Zoom Meetings</a></li>
+                        <li class="wd-active"><a href="/kanbas/course/assignments">Assignments</a></li>
+                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="/kanbas/course/grades.html">Grades</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#">Panopto Video</a></li>
+                        <li><a href="#">Discussions</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Files</a></li>
+                        <li><a href="#">Rubrics</a></li>
+                        <li><a href="#">Outcomes</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="/kanbas/course/settings">Settings</a></li>
+                    </ul>
+                </div>
+
+                <div style="margin-left: 20px; flex: 1;">
+                    <div style="text-align: right;">
+                        <i class="fa-solid fa-circle-check" style="color: green;"></i>
+                        <span style="color: green;">Published</span>
+                        <button class="ps-2 btn btn-secondary"><i class="fa fa-ellipsis-v"
+                                aria-hidden="true"></i></button>
+                    </div>
+                    <hr>
+                    <form>
+                        <label for="" class="form-label">Assignment Name</label>
+
+                        <input class="form-control" type="text" value="A1 - ENV + HTML"> <br /><br />
+                        <textarea class="form-control" name="" id="" cols="30"
+                            rows="5">This is the assignment description.</textarea><br />
+                        <br />
+                        <div class="container">
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Points </label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <input class="form-control" type="number" name="" id="" value="100">
+                                </div>
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Assignment Group</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <select class="form-select" name="" id="">
+                                        <option value="">
+                                            ASSIGNMENTS
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Display Grade as</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <select class="form-select" name="" id="">
+                                        <option value="">
+                                            Percentage
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <input class="form-check-input" type="checkbox" id="assignment-count-check">
+                                    <label class="form-check-label" for="assignment-count-check">
+                                        Do not count this assignment towards the final grade
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Submission Type</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <div style="border: grey solid 2px; padding: 8px; border-radius: 10px;">
+                                        <select class="form-select" name="" id="">
+                                            <option value="">
+                                                Online
+                                            </option>
+                                        </select>
+                                        <h6 class="my-3">Online Entry Options</h6>
+                                        <input class="form-check-input" type="checkbox" value="Text Entry"
+                                            name="check-entry-option" id="chkbox-text" />
+                                        <label class="form-label" for="chkbox-text">Text Entry</label> <br />
+                                        <input class="form-check-input" type="checkbox" value="Website URL"
+                                            name="check-entry-option" id="chkbox-url" />
+                                        <label class="form-label" for="chkbox-url">Website URL</label> <br />
+                                        <input class="form-check-input" type="checkbox" value="Media Recordings"
+                                            name="check-entry-option" id="chkbox-media" />
+                                        <label class="form-label" for="chkbox-media">Media Recordings</label> <br />
+                                        <input class="form-check-input" type="checkbox" value="Student Annotation"
+                                            name="check-entry-option" id="chkbox-annotation" />
+                                        <label class="form-label" for="chkbox-annotation">Student
+                                            Annotation</label><br />
+                                        <input class="form-check-input" type="checkbox" value="File Uploads"
+                                            name="check-entry-option" id="chkbox-file" />
+                                        <label class="form-label" for="chkbox-file">File Uploads</label> <br>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Submission Attempts</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <select class="form-select" name="" id="">
+                                        <option value="">
+                                            Unlimted
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">plagiarism Review</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <select class="form-select" name="" id="">
+                                        <option value="">
+                                            None
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-2" style="text-align: right;">
+                                    <label class="form-label" for="">Assign</label>
+                                </div>
+                                <div class="col" style="text-align: left;">
+                                    <div style="border: grey solid 2px; padding: 8px; border-radius: 10px;">
+                                        <h6><label for="">Assign to</label></h6>
+                                        <input class="form-control" type="text" name="" id="" value="Everyone">
+                                        <h6><label for="">Due</label></h6>
+                                        <input class="form-control" type="date" value="2021-01-01">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h6><label for="">Avaliable From</label></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6><label for="">Untill</label></h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h6><label for="">
+                                                            <input class="form-control" type="date" value="2021-01-01">
+                                                        </label></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6><label for="">
+                                                            <input class="form-control" type="date" value="2021-01-01">
+                                                        </label></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </form>
+
+
+                </div>
+                <hr>
+
+                <div class="px-3" style="display: flex;">
+                    <input class="form-check-input" type="checkbox" id="notify-check">
+                    <label class="form-check-label" for="notify-check">
+                        Notify users that this content has changed
+                    </label>
+                    <div style="margin-left: auto;">
+                        <a href="/kanbas/course/assignments/"><button class="btn btn-secondary">Cancel</button></a>
+                        <a href="/kanbas/course/assignments/"><button class="btn btn-danger">Save</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

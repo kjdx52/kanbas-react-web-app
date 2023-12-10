@@ -1,0 +1,9 @@
+.quiz-link{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.publish:hover {
+    cursor: pointer;
+    background-color: #e0e0e0; 
+  }

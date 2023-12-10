@@ -1,0 +1,10 @@
+.nav-link{
+    color: red;
+    border-bottom: grey solid 2px;
+    border-top: white 2px solid;
+}
+.wd-nav-active{
+    color: black;
+    border: grey solid 2px;
+
+}
