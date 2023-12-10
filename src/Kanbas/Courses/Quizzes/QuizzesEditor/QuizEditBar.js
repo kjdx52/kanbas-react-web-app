@@ -9,7 +9,9 @@ import { RiForbidLine } from "react-icons/ri";
 import { FaRegCircleCheck } from "react-icons/fa6";
 const QuizEditBar = (props) => {
   const { pathname } = useLocation();
-  // const quiz = useSelector((state) => state.quizzesReducer.quiz);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const Added = queryParams.get('Added');
   const mode = props.mode;
   const [quizData, setQuizData] = useState(null);
   const { quizId } = useParams();
@@ -47,13 +49,15 @@ const QuizEditBar = (props) => {
 
       <nav className="nav nav-tabs mt-2">
         <Link
-          to="../details"
+          // to="../details"
+          to={Added ? `../details?Added=true` : "../details"}
           className={`nav-link ${pathname.includes("details") ? "active" : ""}`}
         >
           Details
         </Link>
         <Link
-          to="../questions"
+          // to="../questions"
+          to={Added ? `../questions?Added=true` : "../questions"}
           className={`nav-link ${pathname.includes("questions") ? "active" : ""}`}
         >
           Questions

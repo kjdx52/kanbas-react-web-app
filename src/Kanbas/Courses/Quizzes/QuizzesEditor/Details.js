@@ -1,18 +1,24 @@
 // Details.js
 
 import React, { useEffect } from 'react';
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addQuiz, setQuiz, updateQuiz } from '../quizzesReducer';
+import { addQuestion, setQuestion, setQuestions, updateQuestion } from './Questions/questionsReducer';
 import * as client from "../client";
+import * as questionClient from "./Questions/client"
 import QuizEditBar from './QuizEditBar';
 import QuizEditBottomBar from './QuizEditBottomBar';
 
 const Details = (props) => {
     const mode = props.mode;
     const quiz = useSelector((state) => state.quizzesReducer.quiz);
+    const questions = useSelector((state) => state.questionsReducer.questions);
     const dispatch = useDispatch();
     const { courseId, quizId } = useParams();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const Added = queryParams.get('Added');
     const navigate = useNavigate();
     function getCurrentFormattedDateTime() {
         const currentDate = new Date();
@@ -54,16 +60,20 @@ const Details = (props) => {
     }
 
     useEffect(() => {
-        if (mode === "Edit") {
+        if (mode === "Edit"&&!Added) {
             client.findQuizById(quizId)
                 .then((Quiz) => { dispatch(setQuiz(Quiz)) }
                 );
+            questionClient.findQuestionsForQuiz(quizId)
+                .then((questions) => { dispatch(setQuestions(questions)) }
+                );
         }
-        else {
+        if (mode === "Create"&&!Added) {
             setQuizDefault();
+            dispatch(setQuestions([]))
         }
 
-    }, []);
+    }, [quizId]);
 
     return (
         <div>
