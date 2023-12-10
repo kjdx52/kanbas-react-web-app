@@ -5,9 +5,11 @@ import { useNavigate, useParams, Link, useLocation, Navigate, Route, Routes } fr
 import { useSelector, useDispatch } from "react-redux";
 import { setQuiz } from './quizzesReducer';
 import * as client from "./client";
-const QuizzesBar = ({courseId}) => {
+const QuizzesBar = ({courseId,showDelete, setShowDelete}) => {
   const dispatch = useDispatch();
-  
+  const handleEllipsisClick = () => {
+    setShowDelete(!showDelete);
+  };
   return (
     <div style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>
       <div style={{ display: 'flex' }}>
@@ -20,7 +22,12 @@ const QuizzesBar = ({courseId}) => {
             >
               <button className="btn btn-danger" ><AiOutlinePlus/> Quizzes</button>
             </Link>
-
+            <button
+            className={`btn ${showDelete ? 'btn-dark' : 'btn-secondary'}`}
+            onClick={handleEllipsisClick}
+          >
+            <FaEllipsisVertical/> 
+          </button>
         </div>
       </div>
     </div>

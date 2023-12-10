@@ -42,7 +42,7 @@ const Details = (props) => {
             "dueDate": getCurrentFormattedDateTime(),
             "isShuffle": false,
             "isTimeLimited": true,
-            "isOneQuestionAtaTime": false,
+            "isOneQuestionAtaTime": true,
             "isRequireRespondusLockdownBrowser": false,
             "isRequiredToViewQuizResults": false,
             "isWebcam": false,
@@ -67,7 +67,7 @@ const Details = (props) => {
 
     return (
         <div>
-            <QuizEditBar mode={mode}/>
+            <QuizEditBar mode={mode} />
             {/* <p>{mode}</p>
       <p>{courseId}</p>
       <p>{JSON.stringify(quiz)}</p> */}
@@ -102,8 +102,8 @@ const Details = (props) => {
                                 <input
                                     id='isShuffle'
                                     type='checkbox'
-                                    value={quiz.isShuffle}
-                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isShuffle: e.target.value }))}
+                                    checked={quiz.isShuffle}
+                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isShuffle: e.target.checked }))}
                                 />
                                 <label className='ps-2' for="isShuffle">Shuffle Answers</label>
                             </div>
@@ -115,19 +115,24 @@ const Details = (props) => {
                                 <input
                                     id='isTimeLimited'
                                     type='checkbox'
-                                    value={quiz.isTimeLimited}
-                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isTimeLimited: e.target.value }))}
+                                    checked={quiz.isTimeLimited}
+                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isTimeLimited: e.target.checked }))}
                                 />
                                 <label className='ps-2' for="isTimeLimited">Time Limit</label>
-                                <input
-                                    className='ms-4'
-                                    style={{ width: '60px', height: '25px' }}
-                                    id='minutes'
-                                    type='number'
-                                    value={quiz.minutes}
-                                    onChange={(e) => dispatch(setQuiz({ ...quiz, minutes: e.target.value }))}
-                                />
-                                <label className='ms-2' for="minutes">Minutes</label>
+                                {/* <div>{quiz.isTimeLimited? "yes":"No"}</div> */}
+                                {(quiz.isTimeLimited) &&
+                                    <>
+                                        <input
+                                            className='ms-4'
+                                            style={{ width: '60px', height: '25px' }}
+                                            id='minutes'
+                                            type='number'
+                                            value={quiz.minutes}
+                                            onChange={(e) => dispatch(setQuiz({ ...quiz, minutes: e.target.value }))}
+                                        />
+                                        <label className='ms-2' for="minutes">Minutes</label>
+                                    </>}
+
                             </div>
                         </div>
                         <div className="row">
@@ -137,19 +142,22 @@ const Details = (props) => {
                                 <input
                                     id='isMultipleAttempts'
                                     type='checkbox'
-                                    value={quiz.isMultipleAttempts}
-                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isMultipleAttempts: e.target.value }))}
+                                    checked={quiz.isMultipleAttempts}
+                                    onChange={(e) => dispatch(setQuiz({ ...quiz, isMultipleAttempts: e.target.checked }))}
                                 />
                                 <label className='ps-2' for="isTimeLimited">Allow Multiple Attempts</label>
-                                <input
-                                    className='ms-4'
-                                    style={{ width: '60px', height: '25px' }}
-                                    id='attemptTimes'
-                                    type='number'
-                                    value={quiz.attemptTimes}
-                                    onChange={(e) => dispatch(setQuiz({ ...quiz, attemptTimes: e.target.value }))}
-                                />
-                                <label className='ms-2' for="minattemptTimesutes">Attempt Times</label>
+                                {(quiz.isMultipleAttempts) && <>
+                                    <input
+                                        className='ms-4'
+                                        style={{ width: '60px', height: '25px' }}
+                                        id='attemptTimes'
+                                        type='number'
+                                        value={quiz.attemptTimes}
+                                        onChange={(e) => dispatch(setQuiz({ ...quiz, attemptTimes: e.target.value }))}
+                                    />
+                                    <label className='ms-2' for="minattemptTimesutes">Attempt Times</label>
+                                </>}
+
                             </div>
                         </div>
                         <div className="row my-3">
@@ -200,7 +208,7 @@ const Details = (props) => {
                             </div>
                         </div>
                     </div>
-                    <QuizEditBottomBar mode={mode}/>
+                    <QuizEditBottomBar mode={mode} />
 
                 </div>
             </form>
