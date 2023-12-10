@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link,useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as quizClient from "../client";
 import * as questionClient from "./Questions/client"
@@ -10,29 +10,75 @@ function QuizEditBottomBar(props) {
     const questions = useSelector((state) => state.questionsReducer.questions);
     const navigate = useNavigate();
     const { courseId, quizId } = useParams();
-    const handleSave = async () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const Added = queryParams.get('Added');
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+    const handleSave = async (toPublish) => {
         if(quiz.dueDate==null||quiz.availableFromDate==null||quiz.availableUntilDate==null
             ||quiz.quizname?.length==0){
                 alert("Please Complete all input!")
                 return;
             }
+            let totalPoints = 0;
             if(mode==="Edit"){
-                quizClient.updateQuiz(quiz);
+                if(!Added){
+                    if(toPublish){
+                        const publicQuiz =  {...quiz , isPublish:true};
+                        quizClient.updateQuiz(publicQuiz);
+                    }else{
+                        quizClient.updateQuiz(quiz);
+                    }
+                }else{
+                    quizClient.updateQuiz(quiz);
                 questionClient.deleteQuestionsByQuizId(quiz._id);
-                questions.forEach(q => {
+                await sleep(200);
+                let newquestion = JSON.parse(JSON.stringify(questions));
+                newquestion.forEach(q => {
+                    if(q._id){
+                        delete q._id
+                    }
+                    console.log(totalPoints+" "+q.points);
+                    totalPoints+=parseInt(q.points);
                     questionClient.createQuestion(quiz._id,q);
                 });
-
+                let scoredQuiz = JSON.parse(JSON.stringify(quiz));
+                scoredQuiz.points = totalPoints;
+                if(toPublish){
+                    scoredQuiz.isPublish = true;
+                }
+                quizClient.updateQuiz(scoredQuiz);
+                }
+                
             }else{//Create
-                const newquiz = await quizClient.createQuiz(courseId,quiz);
-                questionClient.deleteQuestionsByQuizId(newquiz._id);
+                let newquiz;
+                if(!Added){
+                    if(toPublish){
+                        const publicQuiz =  {...quiz , isPublish:true};
+                        quizClient.createQuiz(courseId,publicQuiz);
+                    }else{
+                       newquiz = await quizClient.createQuiz(courseId,quiz); 
+                    }
+                }else{
+                    newquiz = await quizClient.createQuiz(courseId,quiz);
+                // questionClient.deleteQuestionsByQuizId(newquiz._id);
                 questions.forEach(q => {
                     questionClient.createQuestion(newquiz._id,q);
+                    totalPoints+=q.points;
                 });
+                let scoredQuiz = JSON.parse(JSON.stringify(newquiz));
+                scoredQuiz.points = totalPoints;
+                if(toPublish){
+                    scoredQuiz.isPublish = true;
+                }
+                quizClient.updateQuiz(scoredQuiz);
+                }
+                
             }
-
-            
-       
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
   
@@ -58,7 +104,10 @@ function QuizEditBottomBar(props) {
                 <button onClick={handleCancel} className="btn btn-secondary ms-2">
                     Cancel
                 </button>
-                <button onClick={handleSave} className="btn btn-danger ms-2">
+                <button onClick={()=>handleSave(true)} className="btn btn-danger ms-2">
+                    Save & Publish
+                </button>
+                <button onClick={()=>handleSave(false)} className="btn btn-danger ms-2">
                     Save
                 </button>
 
