@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addQuestion, setQuestion, setQuestions, updateQuestion,updateQuestionByIndex } from './questionsReducer';
+import { addQuestion, setQuestion, setQuestions, updateQuestion, updateQuestionByIndex } from './questionsReducer';
 import * as client from "./client";
 
 function QuestionEditor(props) {
@@ -136,42 +136,44 @@ function QuestionEditor(props) {
         } else if (mode === "Add") {
             navigate(`/Kanbas/Courses/${courseId}/Quizzes/Edit/${quizId}/questions`)
         } else if (mode === "Edit") {
-            if(ownerQuiz == "Creator"){
+            if (ownerQuiz == "Creator") {
                 navigate(`/Kanbas/Courses/${courseId}/Quizzes/Creator/questions?Added=true`)
-            }else{
+            } else {
                 navigate(`/Kanbas/Courses/${courseId}/Quizzes/Edit/${ownerQuiz}/questions?Added=true`)
             }
         }
     };
 
-    const handleSave = async () => {
+    const handleSave = () => {
         if (mode === "Create") {
             dispatch(addQuestion(question));
             navigate(`/Kanbas/Courses/${courseId}/Quizzes/Creator/questions?Added=true`)
         } else if (mode === "Add") {
-            dispatch(setQuestion({ ...question, quizId: ownerQuiz }))
-            dispatch(addQuestion(question));
+            const newquestion = { ...question, quizId: ownerQuiz };
+            // dispatch(setQuestion(newquestion))
+            dispatch(addQuestion(newquestion));
             navigate(`/Kanbas/Courses/${courseId}/Quizzes/Edit/${quizId}/questions?Added=true`)
         } else if (mode === "Edit") {
-            // const Question = await client.findQuestionById(questionId);
             if (questionId == "temporary") {
-                if(ownerQuiz == "Creator"){
+                if (ownerQuiz == "Creator") {
                     dispatch(updateQuestionByIndex(question))
-                }else{
-                    dispatch(setQuestion({ ...question, quizId: ownerQuiz }))
-                    dispatch(updateQuestionByIndex(question))
+                } else {
+                    const newquestion = { ...question, quizId: ownerQuiz };
+                    // dispatch(setQuestion({ ...question, quizId: ownerQuiz }))
+                    dispatch(updateQuestionByIndex(newquestion))
                 }
-                
+
             } else {
-                dispatch(setQuestion({ ...question, _id: questionId, quizId: ownerQuiz }))
-                dispatch(updateQuestion(question))
+                const newquestion ={ ...question, _id: questionId, quizId: ownerQuiz }
+                // dispatch(setQuestion({ ...question, _id: questionId, quizId: ownerQuiz }))
+                dispatch(updateQuestionByIndex(newquestion))
             }
-                if(ownerQuiz == "Creator"){
-                    navigate(`/Kanbas/Courses/${courseId}/Quizzes/Creator/questions?Added=true`)
-                }else{
-                    navigate(`/Kanbas/Courses/${courseId}/Quizzes/Edit/${ownerQuiz}/questions?Added=true`)
-                }
-                
+            if (ownerQuiz == "Creator") {
+                navigate(`/Kanbas/Courses/${courseId}/Quizzes/Creator/questions?Added=true`)
+            } else {
+                navigate(`/Kanbas/Courses/${courseId}/Quizzes/Edit/${ownerQuiz}/questions?Added=true`)
+            }
+
 
 
         }
@@ -179,7 +181,7 @@ function QuestionEditor(props) {
 
 
     useEffect(() => {
-
+        console.log("start")
         if (mode === "Create" || mode === "Add") {
             dispatch(setQuestion({
                 "type": "Multiple Choice",
@@ -205,11 +207,12 @@ function QuestionEditor(props) {
     return (
         (questionType && (
             <div className=' my-2'>
-                {/* {questionIndex} */}
-                {/* {question._id}
-            <br/>
+               {/* {JSON.stringify( { ...question, _id: questionId, quizId: ownerQuiz })} */}
+                {/* {questionIndex}
+                 {ownerQuiz} */}
+           {/* {mode} */}
+           {/* <br/>
             {questionId}
-            {mode}
         <p>{JSON.stringify(question)}</p> */}
                 <div className='border' style={{ width: "80%" }}>
                     <div>

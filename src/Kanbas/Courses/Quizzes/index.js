@@ -6,6 +6,7 @@ import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteQuiz, setQuiz, setQuizzes, updateQuiz } from "./quizzesReducer";
 import * as client from "./client";
+import * as questionClient from "./QuizzesEditor/Questions/client"
 import { RiForbidLine } from "react-icons/ri";
 import { FaRegCircleCheck } from "react-icons/fa6";
 
@@ -25,6 +26,7 @@ function Quizzes() {
   const handleDeleteClick = (quiz) => {
     const isConfirmed = window.confirm("Are you sure you want to remove this quiz?");
     if (isConfirmed) {
+      questionClient.deleteQuestionsByQuizId(quiz._id);
       client.deleteQuiz(quiz._id).then((status) => {
         dispatch(deleteQuiz(quiz._id));
       });

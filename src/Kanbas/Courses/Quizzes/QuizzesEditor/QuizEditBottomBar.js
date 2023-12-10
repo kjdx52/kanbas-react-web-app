@@ -1,23 +1,34 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import * as client from "../client";
+import * as quizClient from "../client";
+import * as questionClient from "./Questions/client"
 
 function QuizEditBottomBar(props) {
     const mode = props.mode;
     const quiz = useSelector((state) => state.quizzesReducer.quiz);
+    const questions = useSelector((state) => state.questionsReducer.questions);
     const navigate = useNavigate();
     const { courseId, quizId } = useParams();
-    const handleSave = () => {
+    const handleSave = async () => {
         if(quiz.dueDate==null||quiz.availableFromDate==null||quiz.availableUntilDate==null
             ||quiz.quizname?.length==0){
                 alert("Please Complete all input!")
                 return;
             }
             if(mode==="Edit"){
-                client.updateQuiz(quiz)
-            }else{
-                client.createQuiz(courseId,quiz)
+                quizClient.updateQuiz(quiz);
+                questionClient.deleteQuestionsByQuizId(quiz._id);
+                questions.forEach(q => {
+                    questionClient.createQuestion(quiz._id,q);
+                });
+
+            }else{//Create
+                const newquiz = await quizClient.createQuiz(courseId,quiz);
+                questionClient.deleteQuestionsByQuizId(newquiz._id);
+                questions.forEach(q => {
+                    questionClient.createQuestion(newquiz._id,q);
+                });
             }
 
             

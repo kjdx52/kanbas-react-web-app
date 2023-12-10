@@ -19,7 +19,7 @@ const Questions = (props) => {
   const Added = queryParams.get('Added');
   const navigateToQuestionPage = () => {
     if (mode === "Edit") {
-      navigate(`/Kanbas/Courses/${courseId}/Questions/Add/${quizId}?index=${questions.length+1}`);
+      navigate(`/Kanbas/Courses/${courseId}/Questions/Add/${quizId}?index=${questions.length+1}&ownerQuiz=${quizId}`);
     } else if (mode === "Create") {
       navigate(`/Kanbas/Courses/${courseId}/Questions/Creator?index=${questions.length+1}`);
     }
@@ -35,7 +35,7 @@ const Questions = (props) => {
 }, [quizId]);
   return (
     <div>
-      <p>{JSON.stringify(questions)}</p> 
+      {/* <p>{JSON.stringify(questions)}</p>  */}
       <QuizEditBar mode={mode} />
       {(mode === "Edit"||Added) && (
         <QuestionsList mode={mode} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex}/>
