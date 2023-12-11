@@ -7,3 +7,18 @@
     cursor: pointer;
     background-color: #e0e0e0; 
   }
+
+  .previewQuestionLink {
+    color: #ff6666;
+    cursor: pointer;
+  }
+  
+
+  .previewQuestionLink.active {
+    color: #cc0000;
+  }
+  
+
+  .previewQuestionLink:hover {
+    text-decoration: underline;
+  }

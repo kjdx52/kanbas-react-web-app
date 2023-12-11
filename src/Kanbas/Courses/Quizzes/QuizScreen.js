@@ -47,7 +47,12 @@ const QuizScreen = () => {
               {quizData.isPublish ? <FaRegCircleCheck className='pb-1' size={22} /> : <RiForbidLine className='pb-1' size={22} />}{' '}
               {quizData.isPublish ? 'Published' : 'Unpublished'}
             </button>
-            <button className='btn btn-light mx-1'>Preview</button>
+            <Link
+                to={`/Kanbas/Courses/${courseId}/Quizzes/Preview/${quizData._id}`}
+              >
+                <button className='btn btn-light mx-1'>Preview</button>
+              </Link>
+            
             <Link
                 key={quizData._id}
                 to={`/Kanbas/Courses/${courseId}/Quizzes/Edit/${quizData._id}`}
@@ -133,9 +138,14 @@ const QuizScreen = () => {
 
             </div>
           </div>
-          <div className='text-center my-3'>
+          <Link
+                to={`/Kanbas/Courses/${courseId}/Quizzes/Preview/${quizData._id}`}
+              >
+                <div className='text-center my-3'>
             <button className='btn btn-danger'>Preview</button>
           </div>
+              </Link>
+          
         </div>
       )}
     </div>
