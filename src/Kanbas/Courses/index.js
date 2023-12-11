@@ -13,6 +13,7 @@ import Quizzes from "./Quizzes";
 import QuizzesEditor from "./Quizzes/QuizzesEditor";
 import QuizScreen from "./Quizzes/QuizScreen";
 import QuestionsEditor from "./Quizzes/QuizzesEditor/Questions/QuestionsEditor";
+import QuizPreview from "./Quizzes/QuizPreview";
 function Courses({  }) {
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
@@ -59,6 +60,7 @@ function Courses({  }) {
               <Route path="Quizzes/Edit/:quizId/*" element={<QuizzesEditor mode="Edit"/>} />
               <Route path="Quizzes/Creator/*" element={<QuizzesEditor mode="Create"/>} />
               <Route path="Quizzes/Screen/:quizId/*" element={<QuizScreen/>} />
+              <Route path="Quizzes/Preview/:quizId/*" element={<QuizPreview/>} />
               <Route path="Questions/Add/:quizId/*" element={<QuestionsEditor mode="Add"/>} />
               <Route path="Questions/Creator/*" element={<QuestionsEditor mode="Create"/>} />
               <Route path="Questions/Update/:questionId/*" element={<QuestionsEditor mode="Edit"/>} />

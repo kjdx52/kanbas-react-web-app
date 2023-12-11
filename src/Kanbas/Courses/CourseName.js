@@ -39,12 +39,12 @@ function CourseName({ course }) {
           </nav>
         </div>
         <div className="col-2 justify-content-end">
-          <button
+          {/* <button
             type="button"
             className="btn btn-light border border-secondary-subtle float-end"
           >
             <FaGlasses /> Student View
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
